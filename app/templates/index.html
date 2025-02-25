@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <title>Formulario de Área</title>
+    </head>
+
+    <body>
+
+        <h1>Ingresar Área</h1>
+
+        <form method="POST" action="{% url 'create_area' %}"> <label for="id">ID:</label><br>
+            {% csrf_token%}
+            <input type="number" id="idarea" name="idarea" required><br><br>
+
+            <label for="nombre">Nombre del Área:</label><br>
+            <input type="text" id="nombrearea" name="nombrearea" required><br><br>
+
+            <input type="submit" value="Guardar">
+        </form>
+        <br>
+        <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre del Área</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {%for tipos in tipo %}
+
+                    <tr>
+                        <td>{{tipos.idarea}}</td>
+                        <td>{{tipos.nombrearea}}</td>
+                        <td><button href="#openUpdate">actualizar</button></td>
+                         <td>        
+                            <form method="POST" action="{% url 'delet_area' tipos.idarea %}"> 
+                                {% csrf_token%}
+                              <button>Eliminar</button> 
+                            </form>
+                         </td>
+                    </tr>
+                 {% endfor %}           
+                </tbody>
+            </table>
+
+            <div id="openUpdate">
+                  
+                <form method="POST" action=""> <label for="id">ID:</label><br>
+                    {% csrf_token%}
+                    <input type="number" id="idarea" name="idarea" required><br><br>
+        
+                    <label for="nombre">Nombre del Área:</label><br>
+                    <input type="text" id="nombrearea" name="nombrearea" required><br><br>
+        
+                    <input type="submit" value="Guardar">
+                </form>
+            </div>
+
+    </body>
+
+    </html>
+
+</body>
+
+</html>
