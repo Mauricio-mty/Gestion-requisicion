@@ -1,0 +1,48 @@
+html,
+body {
+  height: 100%;
+  /* Asegura que el html y el body ocupen el 100% de la altura */
+  margin: 0;
+  /* Elimina el margen por defecto */
+}
+
+.card-img-top {
+  height: 200px;
+  /* Altura fija para las imágenes */
+  object-fit: cover;
+  /* Ajusta la imagen para cubrir el contenedor */
+}
+
+@media (min-width: 768px) {
+  .offcanvas-start {
+    transform: none !important;
+    visibility: visible !important;
+    position: relative !important;
+    width: 250px !important;
+    height: 100vh;
+  }
+
+  .offcanvas-body {
+    overflow-y: auto;
+  }
+
+  main .container .row{
+  overflow-y: scroll;
+  height: 75vh;
+  scrollbar-width: none;
+}
+}
+
+main .container .row{
+  overflow-y: scroll;
+}
+
+.offcanvas-body ul li {
+  margin-bottom: 15px;
+}
+
+li:hover {
+  background-color: #7e7676;
+  width: 100%;
+  border-radius: 3px;
+}
